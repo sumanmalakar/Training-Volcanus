@@ -1,18 +1,51 @@
-import React from 'react'
+import React, { useState } from "react";
+import { product } from "../product_Data";
 
-const Products = ({ product }) => {
-    // console.table(product);
+const Products = () => {
+  const [products, setProducts] = useState(product);
 
-//     const number = ["Apple","Mango","Bnana","Orange"];
-
-//    const data =  number.map((e)=>e+"-vs-code")
-//    console.log(data)
+  const filterMethod = (category) =>{
+    setProducts(product.filter((data) => data.category == category));
+  }
 
 
   return (
     <>
+      <div className="container d-flex justify-content-center sticky-top bg-light">
+        <button
+          onClick={() =>setProducts(product)}
+          className="btn btn-info mx-3"
+        >
+          No_Filter
+        </button>
+        <button
+          onClick={() => filterMethod("mobiles")}
+          className="btn btn-primary mx-3"
+        >
+          Mobiles
+        </button>
+        <button
+          onClick={() => filterMethod("Laptops")}
+          className="btn btn-warning mx-3"
+        >
+          Laptops
+        </button>
+        <button
+          onClick={() => filterMethod("smartwatch")}
+          className="btn btn-danger mx-3"
+        >
+          SmartWatches
+        </button>
+        <button
+          onClick={() => filterMethod("tablets")}
+          className="btn btn-secondary mx-3"
+        >
+          Tablets
+        </button>
+      </div>
+
       <div className="container my-5">
-        {product.map((data) => {
+        {products.map((data) => {
           return (
             <>
               <div className="text-center my-3">
@@ -23,7 +56,7 @@ const Products = ({ product }) => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    margin:'1rem'
+                    margin: "1rem",
                   }}
                 >
                   <img
@@ -36,7 +69,7 @@ const Products = ({ product }) => {
                     alt="img"
                   />
                 </div>
-                <button className='btn btn-warning'>{data.price}{" "} ₹</button>
+                <button className="btn btn-warning">{data.price} ₹</button>
               </div>
             </>
           );
@@ -46,4 +79,4 @@ const Products = ({ product }) => {
   );
 };
 
-export default Products
+export default Products;
