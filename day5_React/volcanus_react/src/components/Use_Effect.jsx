@@ -1,24 +1,25 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useLayoutEffect,useRef } from "react";
 
 const Use_Effect = () => {
-  const [counter, setCounter] = useState(0);
+  const [backgroundColor, setBackgroundColor] = useState("red");
 
-  
-  useEffect(() => {
-    console.log("UseEffect is Running");
-    document.title = `sideEffect ${counter}`
-  }, [counter]);
+  useLayoutEffect(() => {
+    document.body.style.backgroundColor = backgroundColor;
+  }, [backgroundColor]);
+
+    const myElementRef = useRef(null);
+
+    useLayoutEffect(() => {
+      const rect = myElementRef.current.getBoundingClientRect();
+      console.log("Element dimensions:", rect.width, rect.height);
+      // Perform some action based on the measurements
+    }, []);
 
   return (
     <div>
-      <h1>{counter}</h1>
-      <button
-        onClick={() => setCounter(counter + 1)}
-        className="btn btn-primary"
-      >
-        Increase
-      </button>
+      <p>This is a dynamic style component</p>
+      {/* <button onClick={() => setBackgroundColor("blue")}>Change Color</button> */}
+      <div ref={myElementRef}>This element will be measured</div>
     </div>
   );
 };

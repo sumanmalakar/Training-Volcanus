@@ -11,6 +11,10 @@ import FibonacciApp from "./components/FibonacciApp";
 import ParentComponent from './components/ParentComponent'
 import Use_Effect from "./components/Use_Effect";
 import Fetch_Data from "./components/Fetch_Data";
+import UseCallback from "./components/UseCallback";
+import FormHandling from "./components/FormHandling";
+
+import Multiple_Input_Handling from "./components/Multiple_Input_Handling";
 
 const App = () => {
  
@@ -27,8 +31,10 @@ const App = () => {
 
       {/* <Use_Effect /> */}
 
-      <Fetch_Data />
-
+      {/* <Fetch_Data /> */}
+      {/* <UseCallback /> */}
+{/* <FormHandling /> */}
+<Multiple_Input_Handling />
       </div>
     </>
   );
