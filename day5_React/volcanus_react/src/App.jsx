@@ -16,26 +16,48 @@ import FormHandling from "./components/FormHandling";
 
 import Multiple_Input_Handling from "./components/Multiple_Input_Handling";
 
+import {BrowserRouter as Router, Routes,Route} from 'react-router-dom'
+
+import Home from './Router/Home'
+import About from './Router/About'
+import Career from './Router/Career'
+import Teams from './Router/Teams'
+import Contact from './Router/Contact'
+import DynamicRouter from "./Router/DynamicRouter";
+
 const App = () => {
  
 
   return (
     <>
-      <div>
-        {/* <Navbar /> */}
-      {/* <Data /> */}
-      {/* <Test /> */}
-      {/* <FibonacciApp /> */}
+      <Router>
+        <Navbar />
 
-      {/* <ParentComponent /> */}
+        <Routes>
+          <Route path={"/"} element={<Home />} />
+          <Route path={"/about"} element={<About />} />
+          <Route path={"/career"} element={<Career />} />
+          <Route path={"/teams"} element={<Teams />} />
+          <Route path={"/contact"} element={<Contact />} />
+          <Route path={"/products"} element={<Data />} />
+          <Route path={"/products/:slug"} element={<DynamicRouter />} />
+          {/* <div> */}
+          {/* <Navbar /> */}
+          {/* <Data /> */}
+          {/* <Test /> */}
+          {/* <FibonacciApp /> */}
 
-      {/* <Use_Effect /> */}
+          {/* <ParentComponent /> */}
 
-      {/* <Fetch_Data /> */}
-      {/* <UseCallback /> */}
-{/* <FormHandling /> */}
-<Multiple_Input_Handling />
-      </div>
+          {/* <Use_Effect /> */}
+
+          {/* <Fetch_Data /> */}
+          {/* <UseCallback /> */}
+          {/* <FormHandling /> */}
+          {/* <Multiple_Input_Handling /> */}
+          {/* </div> */}
+        </Routes>
+      </Router>
     </>
   );
 };

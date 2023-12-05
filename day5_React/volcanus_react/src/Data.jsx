@@ -5,7 +5,7 @@ const Data = () => {
     
 
   return (
-    <div>
+    <div className='my-5'>
         <Products />
     </div>
   )
