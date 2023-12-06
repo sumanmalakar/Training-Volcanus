@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { product } from "../product_Data";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState(product);
@@ -51,7 +52,8 @@ const Products = () => {
               <div className="text-center my-3">
                 <h1>{data.title}</h1>
                 <p>{data.description}</p>
-                <div
+                <Link
+                  to={`/products/${data.id}`}
                   style={{
                     display: "flex",
                     justifyContent: "center",
@@ -68,7 +70,7 @@ const Products = () => {
                     src={data.imgUrl}
                     alt="img"
                   />
-                </div>
+                </Link>
                 <button className="btn btn-warning">{data.price} ₹</button>
               </div>
             </>

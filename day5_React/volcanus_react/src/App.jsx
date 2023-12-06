@@ -24,6 +24,7 @@ import Career from './Router/Career'
 import Teams from './Router/Teams'
 import Contact from './Router/Contact'
 import DynamicRouter from "./Router/DynamicRouter";
+import Board from "./components/Board"
 
 const App = () => {
  
@@ -32,7 +33,7 @@ const App = () => {
     <>
       <Router>
         <Navbar />
-
+{/* <Board /> */}
         <Routes>
           <Route path={"/"} element={<Home />} />
           <Route path={"/about"} element={<About />} />
