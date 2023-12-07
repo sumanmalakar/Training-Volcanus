@@ -25,6 +25,9 @@ import Teams from './Router/Teams'
 import Contact from './Router/Contact'
 import DynamicRouter from "./Router/DynamicRouter";
 import Board from "./components/Board"
+import SearchItems from "./components/SearchItems";
+
+import R_NavBar from "./components/R_Navbar";
 
 const App = () => {
  
@@ -34,6 +37,7 @@ const App = () => {
       <Router>
         <Navbar />
 {/* <Board /> */}
+{/* <R_NavBar /> */}
         <Routes>
           <Route path={"/"} element={<Home />} />
           <Route path={"/about"} element={<About />} />
@@ -42,6 +46,8 @@ const App = () => {
           <Route path={"/contact"} element={<Contact />} />
           <Route path={"/products"} element={<Data />} />
           <Route path={"/products/:slug"} element={<DynamicRouter />} />
+          <Route path={"/products/search/:superman"} element={<SearchItems />} />
+
           {/* <div> */}
           {/* <Navbar /> */}
           {/* <Data /> */}

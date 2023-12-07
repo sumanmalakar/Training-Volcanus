@@ -1,0 +1,107 @@
+NavBar.css
+.navbar {
+  background-color: #333;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.menu-icon {
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  display: none; /* Hide by default on larger screens */
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+}
+
+.nav-item {
+  margin-right: 1rem;
+}
+
+.nav-links {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block; /* Show on smaller screens */
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #333;
+    text-align: center;
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-item {
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+}
+
+/* NavBar.css */
+/* ... existing styles ... */
+
+.navbar.active {
+  background-color: #333; /* Change background color when menu is active */
+}
+
+.menu-icon.close {
+  transform: rotate(180deg); /* Rotate close icon when menu is active */
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-item {
+  margin-right: 1rem;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.nav-links {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.navbar.active .nav-menu {
+  transform: translateY(0);
+}
+
+.navbar.active .nav-item {
+  opacity: 1;
+  transition-delay: 0.3s; /* Delay the transition for a smoother effect */
+}
+
+/* ... media query for mobile styles ... */
