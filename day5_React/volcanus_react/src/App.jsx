@@ -26,20 +26,23 @@ import Contact from './Router/Contact'
 import DynamicRouter from "./Router/DynamicRouter";
 import Board from "./components/Board"
 import SearchItems from "./components/SearchItems";
+import IndianGovernment from "./components/IndianGovernment";
 
 import R_NavBar from "./components/R_Navbar";
 
 const App = () => {
  
+  const money = 1000;
 
   return (
     <>
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
 {/* <Board /> */}
 {/* <R_NavBar /> */}
+<IndianGovernment money={money} />
         <Routes>
-          <Route path={"/"} element={<Home />} />
+          {/* <Route path={"/"} element={<Home />} /> */}
           <Route path={"/about"} element={<About />} />
           <Route path={"/career"} element={<Career />} />
           <Route path={"/teams"} element={<Teams />} />
