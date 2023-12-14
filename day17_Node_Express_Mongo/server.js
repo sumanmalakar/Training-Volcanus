@@ -1,9 +1,14 @@
 import express from 'express';
 import bodyParser from 'express'
+import mongoose from 'mongoose';
 
 const app = express();
 
 app.use(bodyParser.json());
+
+mongoose.connect(
+  "mongodb+srv://sumanmalakar2022:G7VwOsxTULrhE9SR@volcanus.tkilonf.mongodb.net/"
+).then(()=>console.log("MongoDB Connected..!"));
 
 const arr = [];
 
