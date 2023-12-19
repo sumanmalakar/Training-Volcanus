@@ -45,28 +45,30 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 
 // Read
-app.get("/" , async (req, res) => {
+app.get("/myprofile", async (req, res) => {
   // console.log("This is Home Route");
   // res.cookie("volcanus", "ram", {
   //   httpOnly: true,
   //   expires: new Date(Date.now() + 5 * 60 * 1000),
   // });
-
-  const token = req.cookies.token;
-
-  const decoded = jwt.verify(token, "s");
-    console.log(decoded.userId);
-    const id = decoded.userId;
-    req.user =  await User.findById(id);
   // console.log("token = ",token)
   // res.send({
   //   marvel: "Doctor Strange",
   //   Ram: "Maryaada Puroshotam",
   //   data: arr,
   // });
-  res.json({user:req.user });
-
   // res.send("<h1>This is html data</h1>")
+
+  const token = req.cookies.Volcanus;
+  if(!token) return res.json({message:'token expire please login'})
+  const decoded = jwt.verify(token, "!@#$%^&*()");
+
+  const userId = decoded.id;
+  // console.log("decoded data is = ",decoded.id);
+
+  let user = await User.findById(userId);
+6
+  res.json({ message: user });
 });
 
 app.get("/superman", (req, res) => {
@@ -84,9 +86,10 @@ app.post("/login", async (req, res) => {
   if (user) {
     const isMatch = password == user.password;
     if (isMatch) {
-      const token = jwt.sign({ userId: user._id }, "s");
+      const token = jwt.sign({ id: user._id }, "!@#$%^&*()");
+
       return res
-        .cookie("token", token, {
+        .cookie("Volcanus", token, {
           httpOnly: true,
           expires: new Date(Date.now() + 5 * 60 * 1000),
         })
@@ -100,7 +103,7 @@ app.post("/login", async (req, res) => {
   // });
 
   console.log(user);
-  res.json({ message: "Invalid Credentials" });
+  res.json({ message: "Invalid Credentials" }); 
 
   // console.log("Login route ",req.body)
 });
